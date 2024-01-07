@@ -3,7 +3,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+.idea/
 初赛数据_readme.md
 .vscode
 .history

@@ -7,9 +7,9 @@ __pycache__/
 初赛数据_readme.md
 .vscode
 .history
-*.png
-*.CSV
-*.csv
+# *.png
+# *.CSV
+# *.csv
 *.zip
 *.xml
 # C extensions

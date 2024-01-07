@@ -5,6 +5,9 @@ __pycache__/
 *$py.class
 
 初赛数据_readme.md
+.vscode
+.history
+*.png
 *.CSV
 *.csv
 *.zip

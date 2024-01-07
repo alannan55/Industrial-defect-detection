@@ -1,5 +1,6 @@
 import os
 from dotenv import find_dotenv
+import torch
 
 
 # Configurations
@@ -11,3 +12,8 @@ class CFG:
     labels = ["A", "B", "C", "D", "E"]
     label2id = {val: idx for idx, val in enumerate(labels)}
     id2label = {v: k for k, v in label2id.items()}
+    seed = 42
+    vit_model = '/ai/users/bst/competition/model/vit-base-patch16-224'
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    epochs = 25
+    weights = [0.1, 0.3, 0.2, 0.1, 0.3]

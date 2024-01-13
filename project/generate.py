@@ -15,6 +15,8 @@ test_A_image_folder = os.path.join(CFG.project_name, 'project/image/A榜测试�
 
 
 def csv2png(csv_folder, image_folder, mode='train'):
+    if not os.path.exists(image_folder):
+        os.makedirs(image_folder)
     for index, csv_file in tqdm(enumerate(os.listdir(csv_folder))):
         # 读取CSV文件
         csv_path = os.path.join(csv_folder, csv_file)
@@ -34,13 +36,15 @@ def csv2png(csv_folder, image_folder, mode='train'):
         image_array = np.zeros((length_x + 1, length_y + 1))
         min_x = data['X'].min()
         min_y = data['Y'].min()
+        value_mean = data['Value'].mean()
+        value_std = data['Value'].std()
         for _, row in data.iterrows():
             x, y, value = int(
                 row['X'] - min_x), int(row['Y'] - min_y), row['Value']
-            image_array[x, y] = value
-
+            image_array[x, y] = (value - value_mean) / value_std
         # 将数组转换为图像
         image = Image.fromarray(np.uint8(image_array * 255))  # 转换为0-255范围的图像
+        image = image.resize((224, 224))
         image.save(img_path)
     print(f"Finished converting {mode} data!")
 

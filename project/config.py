@@ -14,6 +14,7 @@ class CFG:
     id2label = {v: k for k, v in label2id.items()}
     seed = 42
     vit_model = '/ai/users/bst/competition/model/vit-base-patch16-224'
+    convNext_model = '/ai/users/bst/competition/model/convnext-large-224'
     device = "cuda" if torch.cuda.is_available() else "cpu"
     epochs = 25
     weights = [0.1, 0.3, 0.2, 0.1, 0.3]

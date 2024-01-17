@@ -10,6 +10,10 @@ __pycache__/
 # *.png
 # *.CSV
 # *.csv
+xgb.csv
+submission.csv
+**/catboost_info/**
+*.db
 *.zip
 *.xml
 # C extensions
